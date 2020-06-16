@@ -1,0 +1,216 @@
+{% load static %}
+{% load i18n %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'products/main.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/css/flag-icon.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <title>CKC Environmental Technology</title>
+    <link rel="shortcut icon" href="{% static 'products/ckc.png' %}"/>
+</head>
+
+<body>
+    {% get_current_language as LANGUAGE_CODE %}
+    <!-- Current language: {{ LANGUAGE_CODE }} -->
+    <div id="enversion">
+    <!-- Build a navbar here. -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light flex-row bg-ckc-nav">
+        <a class="navbar-brand mx-md-auto mr-auto" href="/">
+            <img src="{% static 'products/ckc.png' %}" class="ckc-logo">
+        </a>
+        <button class="navbar-toggler ml-lg-0" type="button" data-toggle="collapse" data-target="#navbarContent">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+    <nav class="navbar p-0 navbar-expand-lg navbar-light" id="navstick">
+        <div class="collapse navbar-collapse bg-light px-3 bg-ckc-nav" id="navbarContent">
+            <a class="navbar-brand mx-md-auto flex-fill" href="/">
+                <img src="{% static 'products/ckc.png' %}" class="ckc-logo-small flex-fill">
+            </a>
+            <ul class="navbar-nav mx-md-auto mx-auto align-items-mid flex-fill">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../#billboard">{% trans 'Home' %}</a>
+                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../../#services">{% trans 'Services' %}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../../#about">{% trans 'About' %}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../../#products">{% trans 'Products' %}</a>
+                </li>
+            </ul>
+            <!-- GG: This is not right. Flags should not affect navitems position-->
+            {% if LANGUAGE_CODE == 'en' %}
+            <ul style="list-style-type: none;" class="flag-pos flex-fill">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-decoration: none; color:black;"><span class="flag-icon flag-icon-us"> </span> English</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="" style="text-decoration: none; color:black;" id="twbutton">
+                            <form class="lang-change" action="/" id="langpicker4" method="POST">
+                                {% csrf_token %}
+                                <select id="" name="langupdate">
+                                  <option value="en">English</option>
+                                  <option value="zh-tw" selected>繁體中文</option>
+                                </select>
+                                <button type="submit"><span class="flag-icon flag-icon-tw"></span>繁體中文</button>
+                          </form></a>
+                    </div>
+                </li>
+            </ul>
+            {% else %}
+            <ul style="list-style-type: none;" class="flag-pos flex-fill">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="" id="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-decoration: none; color:black;"><span class="flag-icon flag-icon-tw"> </span> 繁體中文</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="" style="text-decoration: none; color:black;" id="">
+                            <form class="lang-change" action="/" id="" method="POST">
+                                {% csrf_token %}
+                                <select id="" name="langupdate">
+                                    <option value="zh-tw" >繁體中文</option>
+                                  <option value="en" selected>English</option>
+                                </select>
+                                <button type="submit"><span class="flag-icon flag-icon-us"></span>English </button>
+                          </form></a>
+                    </div>
+                </li>
+            </ul>
+            {% endif %}
+        </div>
+    </nav>
+
+    <!-- Modal popup for the request a quote page -->    
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title w-100" id="exampleModalLongTitle">{% trans 'Send us a message' %}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                <div class="row">
+                    <p>{% trans 'If you have questions for us, would like to work with us, or would like to receive a quote, please send us an email on' %} <b>t.liang@ckc-environtech.com</b>.</p>
+                    <p>{% trans 'Please provide the following details as a mimimum:' %}</p>
+                </div>
+                <div class="row">
+                <ul>
+                    <li>{% trans 'Company name' %}</li>
+                    <li>{% trans 'Country' %}</li>
+                    <li>{% trans 'How we can help you (please provide product name / quantity if you are interested in one of our existing products)' %}</li>
+                </ul>
+                </div>
+                <div class="row">
+                    <p>{% trans 'We will get back to you as soon as we can' %}. </p>
+                </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="container-fuild">
+    {% block content %}{% endblock %}
+    </div>
+
+    <!-- This is where the footer goes ~~~ -->
+    <footer>
+        <div class="container-fluid">
+            <div class="row pre-footer"></div>
+            <div class="row footer-core">
+                <div class="col-sm-12 footer-logo">
+                    <img src="{% static 'products/qin-white.svg' %}" class="ckc-logo-footer">
+                </div>
+                <div class="col-lg-4 col-xs-12 copyright">
+                    <div class="copyright-list desktop-only">
+                        <ul>
+                            <li><a href="quote" style="text-decoration: none; color: white;" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">{% trans 'Request a quote' %}</a></li>
+                            <li>{% trans "Bicycle pedals" %}</li>
+                            <li>{% trans 'Packaging' %}</li>
+                            <li>{% trans 'Toys' %}</li>
+                            <li>{% trans 'Cutlery' %}</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-xs-12 desktop-only" style="background-image: url('{% static 'products/shop.svg' %}'), url('{% static 'products/testbackground.svg' %}'); background-repeat: no-repeat, no-repeat; background-position: center bottom, center; background-size: 50%, cover; padding-top:10vh, 0vh; padding-bottom:10vh, 0vh;">
+                    <h3 class="pinkoi">{% trans 'Consumers find us on' %} <a href="https://pinkoi.com/store/qinproducts" style="text-decoration: none; color:black;">Pinkoi</a></h3>
+                    
+                </div>
+                <div class="col-sm-12 mobile-only">
+                    <table style="width:100%">
+                        <tr>
+                            <td>{% trans 'Bicycle pedals' %}</td>
+                            <td>{% trans 'Toys' %}</td>
+                            <td>{% trans 'Cutlery' %}</td>
+                            <td>{% trans 'Packaging' %}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-sm-12 mobile-only">
+                    <a href="quote" style="text-decoration: none; color: white;" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">{% trans 'Request a quote' %}</a>
+                </div>
+                <div class="col-lg-4 col-xs-12 contact-us">
+                    <h2>{% trans 'Contact us' %}</h2>
+                    <table style="width:100%">
+                        <tr>
+                            <td>{% trans 'Email:' %}</td>
+                            <td>t.liang@ckc-environtech.com</td>
+                        </tr>
+                        <tr>
+                            <td>{% trans 'Address:' %}</td>
+                            <td>{% trans 'Changhua, Taiwan' %}</td>
+                        </tr>
+                        {% if LANGUAGE_CODE == 'zh-tw' %}
+                        <tr>
+                            <td>聯絡電話:</td>
+                            <td>+886 04-8813644</td>
+                        </tr>
+                        {% endif %}
+                        <tr>
+                            <td>{% trans 'Opening hours:' %}</td>
+                            <td>{% trans 'Monday - Friday 09:00 - 17:00 GMT+8' %}</td>
+                        </tr>
+                      </table>
+                      <div class="copyright-message">
+                      <span>
+                        © CKC Environmental Technology Ltd 2020 <br>
+                        Partner of Chien King Industrial Ltd</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+    <script src="{% static 'products/main.js' %}"></script>
+</body>
+
+</html>

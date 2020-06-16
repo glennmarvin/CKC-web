@@ -1,0 +1,99 @@
+{% extends "products/base.html" %} 
+{% load static %} 
+{% load i18n %}
+{% block content %}
+
+<div class="container">
+  <!-- Tomato {{activatedlang}} -->
+  <div class="row product-name-mobile">
+    <div class="col-sm-12">
+      <p>{{productinfo.name|capfirst}}</p>
+    </div>
+  </div>
+  <div class="row product-page-grid">
+    <div class="col-lg-2 col-sm-12 not-medium">
+      <div class="row">
+        <div class="card small-prod-grid">
+          <div class="card-content">
+            <img class="small-prod-image" src="{{productinfo.image1.url}}" 
+            onclick="ChangeImg('{{productinfo.image1.url}}')"/>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="card small-prod-grid">
+          <div class="card-content">
+            <img class="small-prod-image" src="{{productinfo.image2.url}}" 
+            onclick="ChangeImg('{{productinfo.image2.url}}')"/>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="card small-prod-grid">
+          <div class="card-content">
+            <img class="small-prod-image" src="{{productinfo.image3.url}}" 
+            onclick="ChangeImg('{{productinfo.image3.url}}')"/>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 col-sm-12 col-md-12">
+      <img class="big-prod-image" src="{{productinfo.image1.url}}" id="imgBox" />
+    </div>
+    <!--ONLY FOR MEDIUM SCREENS-->
+    <div class="row medium-only">
+      <div class="col-md-4">
+        <div class="card small-prod-grid">
+          <div class="card-content">
+            <img class="small-prod-image" src="{{productinfo.image1.url}}" 
+            onclick="ChangeImg('{{productinfo.image1.url}}')"/>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card small-prod-grid">
+          <div class="card-content">
+            <img class="small-prod-image" src="{{productinfo.image2.url}}" 
+            onclick="ChangeImg('{{productinfo.image2.url}}')"/>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card small-prod-grid">
+          <div class="card-content">
+            <img class="small-prod-image" src="{{productinfo.image3.url}}" 
+            onclick="ChangeImg('{{productinfo.image3.url}}')"/>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-sm-12 col-md-12">
+      <h1 class="product-name">{{productinfo.name|capfirst}}</h1>
+      <p class="product-subtitle">{% trans 'Product description' %}</p>
+      <p>{{productinfo.description|safe}}</p>
+      <a href="quote" style="text-decoration: none; color: white;" class="btn btn-primary product-page-button" data-toggle="modal" data-target="#exampleModalCenter">{% trans 'Request a quote' %}</a>
+    </div>
+  </div>
+  <div class="row">
+    <h3 class="similar-prod">{% trans 'Similar products' %}</h3>
+  </div>
+  <div class="row" style="display: flex; overflow-x:auto;">
+    <table class="prod-tab">
+      <tr>
+        <!-- GG: set a max num of similar products. e.g. 3 -->
+        {% for product in similar|slice:":4" %}
+        <td>
+          <div class="card sim-table">
+            <div class="card-content"> <a href="../../products/{{product.id}}">
+              <img class="similar-prod-image" src="{{product.image1.url}}"/></a>
+            </div>
+          </div>
+        </td>
+        {% endfor %}
+      </tr>
+    </table>
+  </div>
+</div>
+
+{% endblock content %}
+

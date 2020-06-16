@@ -1,0 +1,156 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-05-09 15:44+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ckc_web/settings.py:110
+msgid "English"
+msgstr ""
+
+#: ckc_web/settings.py:111
+msgid "Traditional Chinese"
+msgstr ""
+
+#: products/templates/products/base.html:42
+msgid "Home"
+msgstr "主頁"
+
+#: products/templates/products/base.html:45
+msgid "Services"
+msgstr "服務項目"
+
+#: products/templates/products/base.html:48
+msgid "About"
+msgstr "關於"
+
+#: products/templates/products/base.html:51
+msgid "Products"
+msgstr "產品"
+
+#: products/templates/products/base.html:99
+msgid "Send us a message"
+msgstr "給我們發信息"
+
+#: products/templates/products/base.html:107
+msgid ""
+"If you have questions for us, would like to work with us, or would like to "
+"receive a quote, please send us an email on"
+msgstr "報價需求或任何問題請聯繫"
+
+#: products/templates/products/base.html:108
+msgid "Please provide the following details as a mimimum:"
+msgstr "請提供以下細節"
+
+#: products/templates/products/base.html:112
+msgid "Company name"
+msgstr "公司名稱/個人稱呼"
+
+#: products/templates/products/base.html:113
+msgid "Country"
+msgstr "國家"
+
+#: products/templates/products/base.html:114
+msgid ""
+"How we can help you (please provide product name / quantity if you are "
+"interested in one of our existing products)"
+msgstr "訊息"
+
+#: products/templates/products/base.html:118
+msgid "We will get back to you as soon as we can"
+msgstr "感謝您的來信，我們會盡快回覆您"
+
+#: products/templates/products/base.html:141
+#: products/templates/products/base.html:164
+#: products/templates/products/products.html:43
+msgid "Request a quote"
+msgstr "索取報價"
+
+#: products/templates/products/base.html:142
+#: products/templates/products/base.html:156
+msgid "Bicycle pedals"
+msgstr "自行車腳踏板"
+
+#: products/templates/products/base.html:143
+#: products/templates/products/base.html:159
+msgid "Packaging"
+msgstr "包裝方式"
+
+#: products/templates/products/base.html:144
+#: products/templates/products/base.html:157
+msgid "Toys"
+msgstr "玩具"
+
+#: products/templates/products/base.html:145
+#: products/templates/products/base.html:158
+msgid "Cutlery"
+msgstr "餐具"
+
+#: products/templates/products/base.html:150
+#: products/templates/products/home.html:108
+msgid "Consumers find us on"
+msgstr "我們在"
+
+#: products/templates/products/base.html:167
+msgid "Contact us"
+msgstr "聯絡我們"
+
+#: products/templates/products/base.html:170
+msgid "Email:"
+msgstr "Email:"
+
+#: products/templates/products/base.html:174
+msgid "Address:"
+msgstr "住址:"
+
+#: products/templates/products/base.html:175
+msgid "Changhua, Taiwan"
+msgstr "彰化,台灣"
+
+#: products/templates/products/base.html:184
+msgid "Opening hours:"
+msgstr "營業時間:"
+
+#: products/templates/products/base.html:185
+msgid "Monday - Friday 09:00 - 17:00 GMT+8"
+msgstr "星期一 - 星期五 09:00 - 17:00"
+
+#: products/templates/products/home.html:34
+msgid "What we do"
+msgstr "我們所做的"
+
+#: products/templates/products/home.html:55
+msgid "About us"
+msgstr "關於我們"
+
+#: products/templates/products/home.html:71
+msgid "Our products"
+msgstr "我們的產品"
+
+#: products/templates/products/home.html:74
+msgid "All"
+msgstr "所有"
+
+#: products/templates/products/products.html:41
+msgid "Product description"
+msgstr "產品描述"
+
+#: products/templates/products/products.html:47
+msgid "Similar products"
+msgstr "同類產品"
+
+#~ msgid "Our services"
+#~ msgstr "我們的服務"
